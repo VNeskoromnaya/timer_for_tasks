@@ -1,0 +1,27 @@
+{
+  "name": "timer_for_tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "parcel index.html --open --port 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VNeskoromnaya/timer_for_tasks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VNeskoromnaya/timer_for_tasks/issues"
+  },
+  "homepage": "https://github.com/VNeskoromnaya/timer_for_tasks#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "chart.js": "^3.9.1",
+    "moment": "^2.29.4"
+  }
+}
