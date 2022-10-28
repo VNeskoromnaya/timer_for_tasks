@@ -1,57 +1,57 @@
 // блок график
 
 // import moment from "moment";
-
-export async function mainFunctionChart() {
-    let configFromServer = await getDatafromServer();
-    let accum = convertFromServer(configFromServer);
-    let timeArray = convertTimeToChart(accum);
-    let daysWeek = convertDaysweekToChart(accum);
-    let config = createConfigOfChart(daysWeek, timeArray);
-    const ctx = chartDiv();
-    createChart(ctx, config);
+export async function drawWorkTimeChart(chartCtx) {
+    let dataFromServer = await getDataFromServer();
+    let workTimesByDate = convertFromServer(dataFromServer);
+    let chartConfig = convertToChartConfig(workTimesByDate);
+    drawAChart(chartCtx, chartConfig);
 }
 
-async function getDatafromServer() {
+async function getDataFromServer() {
     try {
         const response = await fetch('http://localhost:3001/posts');
         const configFromServer = await response.json();
-        console.log(configFromServer);
         return configFromServer;
     } catch (error) {
-        console.log(error);
         alert('Извините, произошла ошибка.')
     }
 }
 
-function convertFromServer(configFromServer) {
+function convertFromServer(dataFromServer) {
     let daysSeven = moment().subtract(6, 'days');
     let day = daysSeven.format("DD/MM/YYYY");
     let accum = {};
     let datum;
-    for (let i = configFromServer.length - 1; i >= 0; i--) {
-        datum = configFromServer[i];
+    for (let i = dataFromServer.length - 1; i >= 0; i--) {
+        datum = dataFromServer[i];
         if (datum.date < day) break;
         accum[datum.date] = (accum[datum.date] || 0) + datum.dayTime;
     }
     return accum;
 }
 
-function convertTimeToChart(accum) {
+function convertToChartConfig(workTimesByDate) {
+    let timeArray = extractTimeForChart(workTimesByDate);
+    let weekDays = extractWeekDaysForChart(workTimesByDate);
+    let chartConfig = createChartConfig(weekDays, timeArray);
+    return chartConfig;
+}
+
+function extractTimeForChart(accum) {
     let timeArray = Object.values(accum).reverse();
     let newTimeArray = timeArray.map((time) => time / 60);
     return newTimeArray;
 }
 
-function convertDaysweekToChart(accum) {
+function extractWeekDaysForChart(accum) {
     let daysArray = Object.keys(accum).reverse();
     let newDaysArray = daysArray.map((date) => moment(date, "DD-MM-YYYY").format('dddd'));
     return newDaysArray;
     // a = moment('24/10/2022', "DD-MM-YYYY").format('dddd') - 'Monday' так получаем день недели
 }
 
-
-function createConfigOfChart(daysWeek, timeArray) {
+function createChartConfig(daysWeek, timeArray) {
     let config = {
         type: "bar",
         data: {
@@ -93,22 +93,6 @@ function createConfigOfChart(daysWeek, timeArray) {
     return config;
 }
 
-function chartDiv() {
-    const ctx = document.getElementById('myChart');
-    return ctx;
-}
-
-function createChart(ctx, config) {
+function drawAChart(ctx, config) {
     const myChart = new Chart(ctx, config);
 }
-
-
-
-
-
-// const config = JSON.parse(chartJson);
-// const ctx = document.getElementById('myChart');
-
-// const myChart = new Chart(ctx, config);
-
-
