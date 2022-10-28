@@ -1,3 +1,117 @@
 h1 {
     color: red;
 }
+
+/* шапка первого слайда */
+.slaid1 {
+    margin-top: 100px;
+    background: url(../img/firstSlide.jpg) 0 0/100% auto no-repeat;
+    object-fit: cover;
+    height: 50rem;
+    width: 50rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#slaid1_phrase {
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    right: 10%;
+    left: 45%;
+    font-size: 1.5em;
+}
+
+#slaid1_today {
+    position: absolute;
+    top: 25%;
+    left: 52%;
+    font-size: 2em;
+}
+
+.slaid1_buttonStart {
+    position: absolute;
+    width: 7%;
+    top: 45%;
+    left: 61%;
+}
+
+.slaid1_history {
+    position: absolute;
+    width: 7%;
+    top: 57%;
+    left: 90%;
+}
+
+/* История */
+#history {
+    font-size: 1.5em;
+    width: 53%;
+    margin: 1% auto;
+}
+
+.history_date {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.history_time {
+    margin-left: 80%;
+}
+
+.history_summury{
+    margin-left: 95%;
+}
+
+@media screen and (max-width: 478px) {
+    .slaid1 {
+        margin-top: 60px;
+        height: 180px;
+        width: auto;
+    }
+
+    #slaid1_phrase {
+        top: 7%;
+        left: 45%;
+        font-size: 1em;
+    }
+
+    #slaid1_today {
+        top: 50%;
+        left: 52%;
+        font-size: 1em;
+    }
+
+    .slaid1_buttonStart {
+        width: 7%;
+        top: 75%;
+        left: 61%;
+    }
+    
+    .slaid1_history {
+        width: 7%;
+        top: 85%;
+        left: 90%;
+    }
+
+    #history {
+        font-size: 1em;
+        width: 95%;
+        margin: 1% auto;
+    }
+    
+    .history_date {
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    
+    
+    .history_time {
+        margin-left: 68%;
+    }
+    
+    .history_summury{
+        margin-left: 95%;
+    }
+}
