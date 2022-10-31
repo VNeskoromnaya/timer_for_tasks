@@ -1,9 +1,51 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "day": "20.10.2022",
+      "text": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+      "time": "3h"
+    },
+    {
+      "id": 2,
+      "day": "20.10.2022",
+      "text": "Neque porro 2",
+      "time": "1h"
+    },
+    {
+      "id": 5,
+      "day": "21.10.2022",
+      "text": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
+      "time": "1h"
+    },
+    {
+      "id": 3,
+      "day": "22.10.2022",
+      "text": "Сгенерировано 1 абзацей, 5 слов, 27 байтов Lorem Ipsum",
+      "time": "4h"
+    },
+    {
+      "id": 4,
+      "day": "23.10.2022",
+      "text": "Нет никого, кто любил бы боль саму по себе, кто искал бы её и кто хотел бы иметь её просто потому, что это боль..",
+      "time": "5h"
+    },
+    {
+      "id": 6,
+      "day": "24.10.2022",
+      "text": "Нет ничего",
+      "time": "7h"
+    }
+    
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "typicode"
+  }
 }

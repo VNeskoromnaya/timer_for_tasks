@@ -17,13 +17,15 @@ export function getTodayDate() {
     document.getElementById('slaid1_today').innerHTML = `${now.getDate()} ${month} ${now.getFullYear()}`;
 }
 
-export function getHistory() {
-    let date = localStorage.getItem('date');
-    let time = localStorage.getItem('time');
-    let history = localStorage.getItem('history');
-    let summary = localStorage.getItem('summary');
-    let optionsString = "";
+export async function getHistory() {
+    const response = await fetch('http://localhost:3001/posts')
+    const data = await response.json()
+    getData(data);
+}
 
-    optionsString = `<h2 class="history_date">${date}</h2><span class="history_text">${history}</span> <span class="history_time">${time}</span><hr><span class="history_summury">${summary}</span>`;
-    document.querySelector("#history").innerHTML = optionsString;
+function getData(data) {
+    const container = document.querySelector('#history');
+    data.forEach(data => {
+        container.innerHTML += `<h2 class="history_date">${data.day}</h2><div class="history_text">${data.text}</div> <div class="history_time">${data.time}</div><hr class="clear"><span class="history_summury">Итого</span>`
+    });
 }

@@ -1,5 +1,19 @@
-h1 {
-    color: red;
+@font-face {
+    /* font-family: "Marck Script";
+    src: url(../fonts/MarckScript-Regular.ttf); */
+/*Чтобы включить Marck Script расскомментировать в селекторе #history font-size */
+
+    /* font-family: "Montserrat";
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf); */
+
+    font-family: "Montserrat";
+    src: url(../fonts/ZCOOLQingKeHuangYou-Regular.ttf);
+}
+
+:root {
+    /* --main_font-family: "Marck Script"; */
+    /* --main_font-family: "Montserrat"; */
+    --main_font-family: ZCOOL QingKe HuangYou, cursive;
 }
 
 /* шапка первого слайда */
@@ -20,6 +34,7 @@ h1 {
     top: 10%;
     right: 10%;
     left: 45%;
+    font-family: var(--main_font-family);
     font-size: 1.5em;
 }
 
@@ -28,6 +43,7 @@ h1 {
     top: 25%;
     left: 52%;
     font-size: 2em;
+    font-family: var(--main_font-family);
 }
 
 .slaid1_buttonStart {
@@ -46,9 +62,10 @@ h1 {
 
 /* История */
 #history {
-    font-size: 1.5em;
-    width: 53%;
+    width: 73%;
     margin: 1% auto;
+    font-family: var(--main_font-family);
+    /* font-size: 1.5em; */
 }
 
 .history_date {
@@ -56,12 +73,22 @@ h1 {
     margin-bottom: 5%;
 }
 
-.history_time {
-    margin-left: 80%;
+.history_text {
+    float: left;
 }
 
-.history_summury{
+.history_time {
+    float: right;
+}
+
+.clear {
+    clear: left;
+    clear: right;
+}
+
+.history_summury {
     margin-left: 95%;
+    float: right;
 }
 
 @media screen and (max-width: 478px) {
@@ -88,7 +115,7 @@ h1 {
         top: 75%;
         left: 61%;
     }
-    
+
     .slaid1_history {
         width: 7%;
         top: 85%;
@@ -100,18 +127,17 @@ h1 {
         width: 95%;
         margin: 1% auto;
     }
-    
+
     .history_date {
         text-align: center;
         margin-bottom: 5%;
     }
-    
-    
+
     .history_time {
         margin-left: 68%;
     }
-    
-    .history_summury{
+
+    .history_summury {
         margin-left: 95%;
     }
 }
