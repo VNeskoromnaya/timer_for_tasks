@@ -9,3 +9,4 @@ import {getHistory} from './script'
 getAPI();
 getTodayDate();
 getHistory();
+
