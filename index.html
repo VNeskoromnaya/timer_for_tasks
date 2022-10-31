@@ -11,7 +11,40 @@
 </head>
 
 <body>
-  <h1>Timer</h1>
+  <div class="wrapper">
+    <div class="container">
+      <div class="timer-and-tasks">
+        <div class="timer-buttons">
+          <button class="button start">старт</button>
+          <button class="button pause">пауза</button>
+          <button class="button reset">сброс данных</button>
+        </div>
+        <div class="timer-display">
+          <div class="timer-items">
+            <div class="timer-item time-hours">00</div>
+            <div class="timer-item time-minutes">00</div>
+            <div class="timer-item time-seconds">00</div>
+          </div>
+        </div>
+      </div>
+      <div class="tasks-add">
+        <span class="my-task">Моя задача</span>
+        <input type="text" class="tasks-input"></input>
+      </div>
+      <div class="error-message"></div>
+      <div class="save-button">
+        <button class="button save">сохранить данные</button>
+      </div>
+    </div>
+    <div class="result">
+      <button class="button history">на сегодня всё</button>
+      <div class="tasks-result"></div>
+    </div>
+  </div>
+
+
+  <script src="./node_modules/moment/min/moment.min.js"></script>
+  <script type="module" src="script/script.js"></script>
 
 
   <script type="module" src="./script/app.js"></script>

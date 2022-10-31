@@ -1,3 +1,86 @@
-h1 {
+body {
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    color: #4A5568;
+}
+
+.wrapper {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("../img/1.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.timer-and-tasks {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.timer-items,
+.timer-display,
+.tasks-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer-item {
+    position: relative;
+    min-width: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.timer-item::before {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: 30%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.timer-item:not(:last-child)::after {
+    content: ':';
+    position: absolute;
+    right: -5px;
+}
+
+.timer-buttons,
+.my-task {
+    margin-right: 15px;
+}
+
+.save-button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end
+}
+
+.tasks-input {
+    width: 300px;
+}
+
+.error-message {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
     color: red;
+}
+
+.tasks-result {
+    display: block;
+    width: 200px;
+    height: 100px;
+    border: 2px solid red;
+    color: #4A5568;
 }
