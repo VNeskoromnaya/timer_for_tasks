@@ -31,7 +31,8 @@
     text-align: center;
 }
 
-.wrapper {
+::backdrop {
+    opacity: 0.5;
     background-color: rgb(189 185 185);
 }
 

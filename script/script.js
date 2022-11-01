@@ -46,7 +46,6 @@ function extractWeekDaysForChart(accum) {
     let daysArray = Object.keys(accum).reverse();
     let newDaysArray = daysArray.map((date) => moment(date, "DD-MM-YYYY").format('dddd'));
     return newDaysArray;
-    // a = moment('24/10/2022', "DD-MM-YYYY").format('dddd') - 'Monday' так получаем день недели
 }
 
 function createChartConfig(daysWeek, timeArray) {
@@ -99,27 +98,27 @@ function drawAChart(ctx, config) {
 
 
 //блок всплывающее окно
+let interval;
+
+function scheduleNotificationShow() {
+    interval = setTimeout(showBreakNotification, 5 * 1000);
+}
 
 export function onWorkStart() {
-    let nIntervId = scheduleNotificationShow();
+    scheduleNotificationShow();
 }
 
 export function onWorkStop() {
-
+    clearTimeout(interval);
 }
 
-function scheduleNotificationShow() {
-    console.log('scheduled');
-    let nIntervId = setTimeout(showBreakNotification, 10 * 1000);
-    return nIntervId;
-}
+
 
 export function showBreakNotification() {
     let body = document.querySelector('body');
     let newElementWindow = createDialogWindow();
     writeDialogWindow(newElementWindow, body);
 }
-// export function clearInterval(nIntervId);
 
 function createDialogWindow() {
     let newElementWindow = document.createElement("dialog");
