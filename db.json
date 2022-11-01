@@ -3,86 +3,72 @@
     {
       "id": 2,
       "date": "20/10/2022",
-      "dayTime": 30,
-      "weekdays": "Четверг"
+      "dayTime": 30
     },
     {
       "id": 3,
       "date": "20/10/2022",
-      "dayTime": 360,
-      "weekdays": "Четверг"
+      "dayTime": 360
     },
     {
       "id": 4,
       "date": "21/10/2022",
-      "dayTime": 50,
-      "weekdays": "Пятница"
+      "dayTime": 50
     },
     {
       "id": 5,
       "date": "22/10/2022",
-      "dayTime": 90,
-      "weekdays": "Суббота"
+      "dayTime": 90
     },
     {
       "id": 6,
       "date": "23/10/2022",
-      "dayTime": 180,
-      "weekdays": "Воскресенье"
+      "dayTime": 180
     },
     {
       "id": 7,
       "date": "24/10/2022",
-      "dayTime": 30,
-      "weekdays": "Понедельник"
+      "dayTime": 30
     },
     {
       "id": 8,
       "date": "24/10/2022",
-      "dayTime": 360,
-      "weekdays": "Понедельник"
+      "dayTime": 360
     },
     {
       "id": 9,
       "date": "25/10/2022",
-      "dayTime": 30,
-      "weekdays": "Вторник"
+      "dayTime": 30
     },
     {
       "id": 10,
       "date": "25/10/2022",
-      "dayTime": 90,
-      "weekdays": "Вторник"
+      "dayTime": 90
     },
     {
       "id": 11,
       "date": "26/10/2022",
-      "dayTime": 120,
-      "weekdays": "Среда"
+      "dayTime": 120
     },
     {
       "id": 12,
       "date": "26/10/2022",
-      "dayTime": 60,
-      "weekdays": "Среда"
+      "dayTime": 60
     },
     {
       "id": 13,
       "date": "27/10/2022",
-      "dayTime": 90,
-      "weekdays": "Четверг"
+      "dayTime": 90
     },
     {
       "id": 14,
       "date": "27/10/2022",
-      "dayTime": 100,
-      "weekdays": "Четверг"
+      "dayTime": 100
     },
     {
       "id": 15,
       "date": "28/10/2022",
-      "dayTime": 210,
-      "weekdays": "Пятница"
+      "dayTime": 210
     }
   ],
   "comments": [

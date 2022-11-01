@@ -1,6 +1,6 @@
-// блок график
-
 // import moment from "moment";
+
+// блок график
 export async function drawWorkTimeChart(chartCtx) {
     let dataFromServer = await getDataFromServer();
     let workTimesByDate = convertFromServer(dataFromServer);
@@ -19,13 +19,11 @@ async function getDataFromServer() {
 }
 
 function convertFromServer(dataFromServer) {
-    let daysSeven = moment().subtract(6, 'days');
-    let day = daysSeven.format("DD/MM/YYYY");
+    let sevenDayAgo = moment().subtract(6, 'days').format("DD/MM/YYYY");
     let accum = {};
-    let datum;
     for (let i = dataFromServer.length - 1; i >= 0; i--) {
-        datum = dataFromServer[i];
-        if (datum.date < day) break;
+        let datum = dataFromServer[i];
+        if (datum.date < sevenDayAgo) break;
         accum[datum.date] = (accum[datum.date] || 0) + datum.dayTime;
     }
     return accum;
@@ -96,3 +94,61 @@ function createChartConfig(daysWeek, timeArray) {
 function drawAChart(ctx, config) {
     const myChart = new Chart(ctx, config);
 }
+
+
+
+
+//блок всплывающее окно
+
+export function onWorkStart() {
+    let nIntervId = scheduleNotificationShow();
+}
+
+export function onWorkStop() {
+
+}
+
+function scheduleNotificationShow() {
+    console.log('scheduled');
+    let nIntervId = setTimeout(showBreakNotification, 10 * 1000);
+    return nIntervId;
+}
+
+export function showBreakNotification() {
+    let body = document.querySelector('body');
+    let newElementWindow = createDialogWindow();
+    writeDialogWindow(newElementWindow, body);
+}
+// export function clearInterval(nIntervId);
+
+function createDialogWindow() {
+    let newElementWindow = document.createElement("dialog");
+    return newElementWindow;
+}
+
+function writeDialogWindow(newElementWindow, body) {
+    newElementWindow.classList.add('container-dialog-window');
+
+    let text = document.createTextNode("Отличная работа! Пора сделать перерыв!");
+    newElementWindow.appendChild(text);
+
+    let closeBtn = document.createElement('button');
+    closeBtn.innerHTML = 'X';
+    closeBtn.classList.add('close-btn');
+    closeBtn.addEventListener('click', closeWindow);
+    newElementWindow.appendChild(closeBtn);
+
+    body.appendChild(newElementWindow);
+    newElementWindow.showModal();
+}
+
+function closeWindow() {
+    const dialog = document.querySelector('.container-dialog-window');
+    dialog.close();
+
+    const body = document.querySelector('body');
+    body.removeChild(dialog);
+
+    scheduleNotificationShow();
+}
+
