@@ -1,11 +1,9 @@
-
-export async function conversionDataFromServer() {
-    let dataFromServer = await getDataFromServer();
-    let newDataFromServer = convertFromServer(dataFromServer);
-    return newDataFromServer;
+export async function getDataFromServer(fromDate) {
+    let dataFromServer = await fetchDataFromServer();
+    return convertFromServer(dataFromServer, fromDate);
 }
 
-async function getDataFromServer() {
+async function fetchDataFromServer() {
     try {
         const response = await fetch('http://localhost:3001/data');
         const configFromServer = await response.json();
@@ -15,18 +13,20 @@ async function getDataFromServer() {
     }
 }
 
-function convertFromServer(dataFromServer) {
-    console.log(dataFromServer);
+function convertFromServer(dataFromServer, fromDate) {
+    let newDataServer = [];
     for (let i = dataFromServer.length - 1; i >= 0; i--) {
         let datum = dataFromServer[i]
-        datum.date = moment(datum.date, 'DD-MM-YYYY').format('YYYY-MM-DD');
-        console.log(datum.date);
+        datum.date = moment(datum.date, 'DD-MM-YYYY');
+        if ((datum.date).isSameOrBefore(fromDate)) break;
         for (let post of datum.posts) {
             post.time = moment.duration(post.time);
             console.log(post.time);
         }
+        newDataServer.push(datum);
     }
-    return dataFromServer;
+    console.log(newDataServer);
+    return newDataServer;
 }
 
 

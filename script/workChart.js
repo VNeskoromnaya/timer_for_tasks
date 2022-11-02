@@ -1,27 +1,25 @@
-import { conversionDataFromServer } from './getDataServer.js'
+import { getDataFromServer } from './getDataServer.js'
 
 // блок график
 export async function drawWorkTimeChart(chartCtx) {
-    let newDataFromServer = await conversionDataFromServer();
+    let weekAgo = moment().subtract(1, 'week');
+    let newDataFromServer = await getDataFromServer(weekAgo);
     let accum = convertNewData(newDataFromServer)
     let chartConfig = convertToChartConfig(accum);
     drawAChart(chartCtx, chartConfig);
 }
 
 function convertNewData(newDataFromServer) {
-    let weekAgo = moment().subtract(1, 'week').format('YYYY-MM-DD');
     console.log('it works');
     let accum = {};
     for (let i = newDataFromServer.length - 1; i >= 0; i--) {
         let datum = newDataFromServer[i];
-        if (datum.date <= weekAgo) break;
         const sum = moment.duration(0);
         let date = moment(datum.date).format('DD-MM-YYYY');
-        // if ((datum.date).isSameOrBefore(weekAgo)) break;
         for (let post of datum.posts) {
             sum.add(post.time);
         }
-        accum[date] = Math.round(sum.asHours());
+        accum[date] = sum.asHours();
     }
     return accum;
 }
@@ -34,14 +32,12 @@ function convertToChartConfig(accum) {
 }
 
 function extractTimeForChart(accum) {
-    let timeArray = Object.values(accum).reverse();
-    return timeArray;
+    return Object.values(accum);
 }
 
 function extractWeekDaysForChart(accum) {
-    let daysArray = Object.keys(accum).reverse();
-    let newDaysArray = daysArray.map((date) => moment(date, "DD-MM-YYYY").format('dddd'));
-    return newDaysArray;
+    let daysArray = Object.keys(accum);
+    return daysArray.map((date) => moment(date, "DD-MM-YYYY").format('dddd'));
 }
 
 function createChartConfig(daysWeek, timeArray) {
