@@ -1,54 +1,59 @@
+const chart = require('chart.js');
+import moment from 'moment';
 import { getDataFromServer } from './getDataServer.js'
 
 // блок график
 export async function drawWorkTimeChart(chartCtx) {
-    let weekAgo = moment().subtract(1, 'week');
-    let newDataFromServer = await getDataFromServer(weekAgo);
-    let accum = convertNewData(newDataFromServer)
-    let chartConfig = convertToChartConfig(accum);
+    let weekAgo = moment().startOf('day').subtract(7 - 1, 'day');
+    let dataFromServer = await getDataFromServer(weekAgo);
+    let workDurationsByDate = extractWorkDurationsByDate(dataFromServer, weekAgo)
+    let chartConfig = convertToChartConfig(workDurationsByDate);
     drawAChart(chartCtx, chartConfig);
 }
 
-function convertNewData(newDataFromServer) {
-    console.log('it works');
-    let accum = {};
-    for (let i = newDataFromServer.length - 1; i >= 0; i--) {
-        let datum = newDataFromServer[i];
-        const sum = moment.duration(0);
-        let date = moment(datum.date).format('DD-MM-YYYY');
-        for (let post of datum.posts) {
-            sum.add(post.time);
-        }
-        accum[date] = sum.asHours();
+const dateFormat = 'DD-MM-YYYY';
+
+function extractWorkDurationsByDate(dataFromServer, fromDate) {
+    const workDurationsByDate = {};
+    const today = moment().startOf('day');
+    for (const date = moment(fromDate); date.isSameOrBefore(today); date.add(1, 'day')) {
+        workDurationsByDate[date.format(dateFormat)] = 0;
     }
-    return accum;
+    for (const datum of dataFromServer) {
+        const durationSum = moment.duration(0);
+        for (const post of datum.posts) {
+            durationSum.add(post.time);
+        }
+        workDurationsByDate[datum.date.format(dateFormat)] = durationSum.asHours();
+    }
+    return workDurationsByDate;
 }
 
-function convertToChartConfig(accum) {
-    let timeArray = extractTimeForChart(accum);
-    let weekDays = extractWeekDaysForChart(accum);
-    let chartConfig = createChartConfig(weekDays, timeArray);
+function convertToChartConfig(workDurationsByDate) {
+    let workDurations = extractWorkDurationsForChart(workDurationsByDate);
+    let weekDays = extractWeekDaysForChart(workDurationsByDate);
+    let chartConfig = createChartConfig(weekDays, workDurations);
     return chartConfig;
 }
 
-function extractTimeForChart(accum) {
-    return Object.values(accum);
+function extractWorkDurationsForChart(workDurationsByDate) {
+    return Object.values(workDurationsByDate);
 }
 
-function extractWeekDaysForChart(accum) {
-    let daysArray = Object.keys(accum);
-    return daysArray.map((date) => moment(date, "DD-MM-YYYY").format('dddd'));
+function extractWeekDaysForChart(workDurationsByDate) {
+    let dates = Object.keys(workDurationsByDate);
+    return dates.map(date => moment(date, dateFormat).format('dddd'));
 }
 
-function createChartConfig(daysWeek, timeArray) {
+function createChartConfig(weekDays, workDurations) {
     let config = {
         type: "bar",
         data: {
-            labels: daysWeek,
+            labels: weekDays,
             datasets: [
                 {
                     label: "Время обучения по дням",
-                    data: timeArray,
+                    data: workDurations,
                     backgroundColor: [
                         "rgba(75, 192, 192, 0.2)",
                         "rgba(255, 99, 132, 0.2)",

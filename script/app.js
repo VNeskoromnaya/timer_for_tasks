@@ -1,15 +1,11 @@
-import moment from 'moment';
-window.moment = moment;
-const chart = require('chart.js');
-
 import { onWorkStart, onWorkStop } from './workBreaks.js';
 import { drawWorkTimeChart } from './workChart.js';
 
-drawWorkTimeChart(document.getElementById('myChart'));
+const chartDiv = document.getElementById('myChart');
+drawWorkTimeChart(chartDiv);
 
-let buttonStart = document.querySelector('.btn');
-buttonStart.addEventListener('click', onWorkStart);
+const startButton = document.querySelector('.btn-start');
+startButton.addEventListener('click', onWorkStart);
 
-let buttonFinish = document.querySelector('.btn-finish');
-buttonFinish.addEventListener('click', onWorkStop);
-
+const finishButton = document.querySelector('.btn-finish');
+finishButton.addEventListener('click', onWorkStop);

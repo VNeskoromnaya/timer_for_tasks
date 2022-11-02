@@ -1,10 +1,10 @@
 
 import { scheduleNotificationShow } from './workBreaks.js'
 
-export function showBreakNotification() {
+export function showDialogWindow(text) {
     let body = document.querySelector('body');
     let newElementWindow = createDialogWindow();
-    writeDialogWindow(newElementWindow, body);
+    writeDialogWindow(newElementWindow, body, text);
 }
 
 function createDialogWindow() {
@@ -12,11 +12,11 @@ function createDialogWindow() {
     return newElementWindow;
 }
 
-function writeDialogWindow(newElementWindow, body) {
+function writeDialogWindow(newElementWindow, body, text) {
     newElementWindow.classList.add('container-dialog-window');
 
-    let text = document.createTextNode("Отличная работа! Пора сделать перерыв!");
-    newElementWindow.appendChild(text);
+    let textNode = document.createTextNode(text);
+    newElementWindow.appendChild(textNode);
 
     let closeBtn = document.createElement('button');
     closeBtn.innerHTML = 'X';

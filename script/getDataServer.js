@@ -1,7 +1,11 @@
+import moment from 'moment';
+
 export async function getDataFromServer(fromDate) {
     let dataFromServer = await fetchDataFromServer();
     return convertFromServer(dataFromServer, fromDate);
 }
+
+const dateFormat = 'DD/MM/YYYY';
 
 async function fetchDataFromServer() {
     try {
@@ -13,20 +17,19 @@ async function fetchDataFromServer() {
     }
 }
 
-function convertFromServer(dataFromServer, fromDate) {
-    let newDataServer = [];
+function convertFromServer(dataFromServer, fromDate, toDate) {
+    let convertedData = [];
     for (let i = dataFromServer.length - 1; i >= 0; i--) {
         let datum = dataFromServer[i]
-        datum.date = moment(datum.date, 'DD-MM-YYYY');
-        if ((datum.date).isSameOrBefore(fromDate)) break;
+        datum.date = moment(datum.date, dateFormat);
+        if (fromDate && datum.date.isBefore(fromDate)) break;
+        if (toDate && datum.date.isSameOrAfter(toDate)) continue;
         for (let post of datum.posts) {
             post.time = moment.duration(post.time);
-            console.log(post.time);
         }
-        newDataServer.push(datum);
+        convertedData.push(datum);
     }
-    console.log(newDataServer);
-    return newDataServer;
+    return convertedData.reverse();
 }
 
 

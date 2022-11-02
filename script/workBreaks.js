@@ -1,9 +1,11 @@
-import { showBreakNotification } from './dialogWindow.js'
+import { showDialogWindow } from './dialogWindow.js'
 
-let interval;
+let timeoutId;
 
 export function scheduleNotificationShow() {
-    interval = setTimeout(showBreakNotification, 5 * 1000);
+    const notificationText = "Отличная работа! Пора сделать перерыв!";
+    const notificationTimeout = 30 * 60 * 1000;
+    timeoutId = setTimeout(() => showDialogWindow(notificationText), notificationTimeout);
 }
 
 export function onWorkStart() {
@@ -11,5 +13,5 @@ export function onWorkStart() {
 }
 
 export function onWorkStop() {
-    clearTimeout(interval);
+    clearTimeout(timeoutId);
 }
