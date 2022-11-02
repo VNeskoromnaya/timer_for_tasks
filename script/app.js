@@ -1,9 +1,9 @@
-// import { bodyParser } from 'json-server';
 import moment from 'moment';
 window.moment = moment;
 const chart = require('chart.js');
 
-import { drawWorkTimeChart, onWorkStart, onWorkStop } from './script.js'
+import { onWorkStart, onWorkStop } from './workBreaks.js';
+import { drawWorkTimeChart } from './workChart.js';
 
 drawWorkTimeChart(document.getElementById('myChart'));
 
@@ -12,3 +12,4 @@ buttonStart.addEventListener('click', onWorkStart);
 
 let buttonFinish = document.querySelector('.btn-finish');
 buttonFinish.addEventListener('click', onWorkStop);
+
