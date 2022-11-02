@@ -1,4 +1,3 @@
-import moment from "moment";
 
 export async function conversionDataFromServer() {
     let dataFromServer = await getDataFromServer();
