@@ -1,7 +1,3 @@
-// import moment from "moment";
-// window.moment = moment;
-// const chart = require("chart.js");
-
 import {start, pause, reset} from './stopwatch.js';
 import {save} from './saveData.js';
 
