@@ -2,7 +2,7 @@ import moment from "moment";
 
 import {
     reset
-} from './stopwatch.js';
+} from './timer.js';
 
 const hoursItem = document.querySelector('.time-hours');
 const minutesItem = document.querySelector('.time-minutes');

@@ -1,4 +1,3 @@
-const buttonStart = document.querySelector('.start');
 const buttonSave = document.querySelector('.save');
 
 const hoursItem = document.querySelector('.time-hours');

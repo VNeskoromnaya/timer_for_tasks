@@ -1,4 +1,4 @@
-import {start, pause, reset} from './stopwatch.js';
+import {start, pause, reset} from './timer.js';
 import {save} from './saveData.js';
 
 const buttonStart = document.querySelector('.start');
