@@ -54,6 +54,14 @@ export function save() {
     data.push(dataItem);
 
 
+    reset();
+}
+
+
+
+console.log(data);
+
+
 //     const response = await fetch('http://localhost:3001/posts', {
 //     method: 'POST',
 //     headers: {
@@ -64,12 +72,3 @@ export function save() {
 // const result = await response.json;
 
 // console.log(result);
-
-//     reset();
-}
-
-
-
-console.log(data);
-
-
