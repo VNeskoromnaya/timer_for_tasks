@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/VNeskoromnaya/timer_for_tasks#readme",
   "devDependencies": {
+    "parcel": "^2.7.0",
     "sass": "^1.55.0"
   },
   "dependencies": {

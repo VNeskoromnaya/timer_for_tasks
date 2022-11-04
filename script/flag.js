@@ -14,7 +14,7 @@ async function getDataFromServer() {
 }
 
 // функция 2: эта функция проводит калькуляцию значений времени
-function getTotalHours(data) {
+function getTotalHours(data) {  
   let totalSeconds = 0;
   for (let i = 0; i < data.length; i++) {
     let item = data[i];
@@ -28,13 +28,18 @@ function getTotalHours(data) {
     }
   }
   console.log(totalSeconds);
-  return Math.round(totalSeconds / 60);
+  return Math.round(totalSeconds / 3600);
 }
+
+
 
 // функция 3: эта функция выводит значение на UI
 function updateUIControls(totalHours) {
   // ничего не возвращает
-}
+  let inputWheel = document.querySelector(`#unicycle1 input[type=range]`);
+  inputWheel.value = totalHours;
+  let unicycle = new UnicycleRangeSlider("#unicycle1");
+}  
 
 // функция 4
 export async function displayTimeStatistics() {
@@ -50,9 +55,6 @@ class UnicycleRangeSlider {
     this.flag = document.querySelector(`${el} .unicycle__flag`);
 
     this.updateBodyPos();
-    this.wheel.addEventListener("input", () => {
-      this.updateBodyPos();
-    });
   }
   updateBodyPos() {
     let max = this.wheel.max,
