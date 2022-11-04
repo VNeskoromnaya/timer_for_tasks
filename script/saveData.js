@@ -1,4 +1,8 @@
-import {reset} from './stopwatch.js';
+import moment from "moment";
+
+import {
+    reset
+} from './stopwatch.js';
 
 const hoursItem = document.querySelector('.time-hours');
 const minutesItem = document.querySelector('.time-minutes');
@@ -8,6 +12,7 @@ const task = document.querySelector('.tasks-input');
 const errorMessage = document.querySelector('.error-message');
 
 let data = []; // все задачи с датами и временем выполнения собираются в этот массив
+let posts = [];
 
 // Функция сохраняет данные в массив объектов
 export function save() {
@@ -15,37 +20,56 @@ export function save() {
     const minutes = minutesItem.textContent;
     const seconds = secondsItem.textContent;
 
-    if (task.value === '') {
-        errorMessage.innerHTML = "Поле не заполнено";
-        return false;
-    } else if (hours === '00' && minutes === '00' && seconds === '00') {
-        errorMessage.innerHTML = "Таймер не запущен";
-        return false;
-    } else {
-
-        let dataItem = {};
-        dataItem[posts] = [{
-            "task": `${task.value}`,
-            "time": `${hours}:${minutes}:${seconds}`,
-        }];
-        dataItem.id = data.length + 1;
-        dataItem.date = moment().format("DD/MM/YYYY");
-        data.push(dataItem);
-
-        reset();
+    class DataItem {
+        constructor(option) {
+            this.id = option.id
+            this.date = option.date
+            this.posts = option.posts
+        }
+    }
+    class PostsItem {
+        constructor(option) {
+            this.idPosts = option.idPosts
+            this.day = option.day
+            this.title = option.title
+            this.time = option.time
+        }
     }
 
+    const postsItem = new PostsItem({
+        idPosts: `${posts.length + 1}`,
+        day: moment().format("DD/MM/YYYY"),
+        title: `${task.value}`,
+        time: `${hours}:${minutes}:${seconds}`,
+    })
+
+    const dataItem = new DataItem({
+        id: `${data.length + 1}`,
+        date: moment().format("DD/MM/YYYY"),
+        posts: posts,
+    })
+
+
+    posts.push(postsItem);
+    data.push(dataItem);
+
+
+//     const response = await fetch('http://localhost:3001/posts', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(dataItem)
+// });
+// const result = await response.json;
+
+// console.log(result);
+
+//     reset();
 }
+
+
 
 console.log(data);
 
-const sendDataToServer = async (url, posts) => {
-    const response = await fetch(url, {
-        method: 'POST',
-        body: posts,
-    });
-    if (!response.ok) {
-        throw new Error(`Ошибка по адресу ${url}, статус ошибки ${response}`);
-    }
-    return await response.json();
-}
+
