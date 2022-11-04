@@ -1,3 +1,6 @@
+const buttonStart = document.querySelector('.start');
+const buttonSave = document.querySelector('.save');
+
 const hoursItem = document.querySelector('.time-hours');
 const minutesItem = document.querySelector('.time-minutes');
 const secondsItem = document.querySelector('.time-seconds');
@@ -6,7 +9,7 @@ const errorMessage = document.querySelector('.error-message');
 const task = document.querySelector('.tasks-input');
 
 let startDate;
-let interval = null;
+let timerId;
 
 // Функция таймера
 function stopwatch() {
@@ -22,23 +25,26 @@ function stopwatch() {
 
 // Старт
 export function start() {
-    clearInterval(interval);
+    clearInterval(timerId);
     startDate = new Date();
-    interval = setInterval(stopwatch, 1000);
+    timerId = setInterval(stopwatch, 1000);
+    buttonSave.disabled = false;
 }
 
 // Пауза
 export function pause() {
-    clearInterval(interval);
+    clearInterval(timerId);
+    buttonSave.disabled = true;
 }
 
 // Сброс данных
 export function reset() {
     pause();
-    interval = null;
+    timerId = null;
     resetDisplay();
     errorMessage.innerHTML = "";
     task.value = "";
+    buttonSave.disabled = true;
 }
 
 // Функция обнуляет данные таймера при нажатии на кнопку "сброс данных"
