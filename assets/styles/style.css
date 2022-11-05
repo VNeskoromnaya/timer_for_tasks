@@ -1,3 +1,57 @@
-h1 {
-    color: red;
+/* блок график  */
+
+.container-chart {
+    width: 80%;
+    height: auto;
+    background-color: #a9a9a91a;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.chart__title {
+    text-align: center;
+    font-size: large;
+}
+
+.chart {
+    padding: 10px;
+}
+
+/* Блок диалоговое окно */
+
+.container-dialog-window {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    color: rgb(63 165 28);
+    border: 5px solid rgb(154 229 128);
+    width: 70%;
+    border-radius: 10px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+::backdrop {
+    opacity: 0.5;
+    background-color: rgb(189 185 185);
+}
+
+.close-btn {
+    border: none;
+    background-color: white;
+    color: rgb(63 165 28);
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    font-size: x-large;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(154 229 128);
 }

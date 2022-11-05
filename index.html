@@ -13,8 +13,19 @@
 <body>
   <h1>Timer</h1>
 
+  <!-- Блок "график" -->
+  <section class="container-chart">
+    <p class="chart__title">Время обучения по дням.</p>
+    <div class="chart">
+      <canvas id="myChart" class="myChart"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </div>
+  </section>
 
-  <script type="module" src="./script/app.js"></script>
+  <button class="btn-start">Start work</button>
+  <button class="btn-finish">Finish work</button>
+
+  <script type="module" src="script/app.js"></script>
 </body>
 
 </html>
