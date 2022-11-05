@@ -10,7 +10,7 @@ const task = document.querySelector('.tasks-input');
 
 let startDate;
 let timerId;
-let gate = false;
+// let gate = false;
 
 // Функция таймера
 function timer() {
@@ -26,25 +26,20 @@ function timer() {
 
 // Старт
 export function start() {
-    clearInterval(timerId);
-    startDate = new Date();
-    timerId = setInterval(timer, 1000);
-    buttonSave.disabled = false;
+    if (!timerId) {
+        startDate = new Date();
+        timerId = setInterval(timer, 1000);
+        buttonSave.disabled = false;
+    }
 }
 
 // Пауза
 export function pause() {
-    if (gate == false) {
+
+    if (timerId) {
         clearInterval(timerId);
-        buttonStart.textContent = "продолжить";
+        timerId = null;
         buttonSave.disabled = true;
-        gate = true;
-    } else {
-        clearInterval(timerId);
-        startDate = new Date();
-        buttonStart.textContent = "старт";
-        buttonSave.disabled = false;
-        gate = false;
     }
 }
 
