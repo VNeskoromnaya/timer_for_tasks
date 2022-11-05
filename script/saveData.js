@@ -51,12 +51,12 @@ export async function save() {
     posts.push(postsItem);
 
 
-    const url = ' http://localhost:3001/posts';
+    const url = 'http://localhost:3001/posts/1';
     data.push(dataItem);
 
     try {
         const response = await fetch(url, {
-            method: 'POST', // или 'PUT'
+            method: 'PUT', // или 'PUT'
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
@@ -69,6 +69,7 @@ export async function save() {
     }
 
     reset();
+
 }
 
 // console.log(data);
