@@ -2,9 +2,9 @@ import moment from "moment";
 window.moment = moment;
 const chart = require("chart.js");
 
-import {getAPI} from './script'
-import {getTodayDate} from './script'
-import {getHistory} from './script'
+import {getAPI} from './getAPI'
+import {getTodayDate} from './getTodayDate'
+import {getHistory} from './getHistory'
 
 getAPI();
 getTodayDate();

@@ -1,5 +1,91 @@
-h1 {
-	color: red;
+@font-face {
+    /* font-family: "Marck Script";
+    src: url(../fonts/MarckScript-Regular.ttf); */
+/*Чтобы включить Marck Script расскомментировать в селекторе #history font-size */
+
+    /* font-family: "Montserrat";
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf); */
+
+    font-family: "Montserrat";
+    src: url(../fonts/ZCOOLQingKeHuangYou-Regular.ttf);
+}
+
+:root {
+    /* --main_font-family: "Marck Script"; */
+    /* --main_font-family: "Montserrat"; */
+    --main_font-family: ZCOOL QingKe HuangYou, cursive;
+}
+
+/* шапка первого слайда */
+.slaid1 {
+    margin-top: 100px;
+    background: url(../img/firstSlide.jpg) 0 0/100% auto no-repeat;
+    object-fit: cover;
+    height: 15rem;
+    width: 28.5rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#slaid1_phrase {
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    right: 10%;
+    left: 45%;
+    font-family: var(--main_font-family);
+    font-size: 0.75em;
+}
+
+#slaid1_today {
+    position: absolute;
+    top: 30%;
+    left: 52%;
+    font-size: 1.2em;
+    font-family: var(--main_font-family);
+}
+
+.slaid1_history {
+    position: absolute;
+    width: 7%;
+    top: 83%;
+    left: 90%;
+}
+
+.slaid1_history:hover {
+    transform: scale(1);
+    box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.2);
+    transition: box-shadow 0.5s, transform 0.5s;
+    color: black;
+}
+
+/* История */
+#history {
+    width: 83%;
+    margin: 1% auto;
+    font-family: var(--main_font-family);
+    /* font-size: 1.5em; */
+}
+
+.history_date {
+    text-align: center;
+    margin-top: 5%;
+    font-weight: 600;
+    font-size: 0.6em;
+}
+
+.history_container {
+    font-weight: lighter;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+.histopy_sum {
+    font-weight: lighter;
+    display: flex;
+    justify-content: end;
 }
 
 .title {
@@ -398,4 +484,43 @@ form {
     cursor: pointer;
     border-radius: 50%;
     background-color: rgb(154 229 128);
+}
+
+@media screen and (max-width: 478px) {
+    .slaid1 {
+        margin-top: 60px;
+        height: 180px;
+        width: auto;
+    }
+
+    #slaid1_phrase {
+        top: 7%;
+        left: 45%;
+        font-size: 0.5em;
+    }
+
+    #slaid1_today {
+        top: 35%;
+        left: 52%;
+        font-size: 0.6em;
+    }
+
+
+    .slaid1_history {
+        width: 7%;
+        top: 85%;
+        left: 90%;
+    }
+
+    #history {
+        font-size: 1em;
+        width: 95%;
+        margin: 1% auto;
+    }
+
+    .history_date {
+        text-align: center;
+        margin-bottom: 5%;
+        font-size: 1em;
+    }
 }
