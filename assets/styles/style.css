@@ -1,12 +1,12 @@
 /* Таймер + добавление задач */
-body {
+/* body {
     font-family: "Nunito", sans-serif;
     font-weight: 600;
     font-size: 1em;
     color: #4A5568;
-}
+} */
 
-.wrapper {
+/* .wrapper {
     min-height: 100vh;
     overflow: hidden;
     display: flex;
@@ -17,7 +17,7 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-}
+} */
 
 .buttons-and-timer {
     margin-bottom: 15px;
