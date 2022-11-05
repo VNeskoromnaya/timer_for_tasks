@@ -19,13 +19,13 @@ import {
 
 import {
   getAPI
-} from './getAPI'
+} from './getAPI';
 import {
   getTodayDate
-} from './getTodayDate'
+} from './getTodayDate';
 import {
   getHistory
-} from './getHistory'
+} from './getHistory';
 
 
 
