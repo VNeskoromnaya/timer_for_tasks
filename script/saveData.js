@@ -9,13 +9,12 @@ const minutesItem = document.querySelector('.time-minutes');
 const secondsItem = document.querySelector('.time-seconds');
 
 const task = document.querySelector('.tasks-input');
-const errorMessage = document.querySelector('.error-message');
 
-let data = []; // все задачи с датами и временем выполнения собираются в этот массив
-let posts = [];
+let data = []; // все данные за день
+let posts = []; // все задачи с датами и временем выполнения собираются в этот массив
 
 // Функция сохраняет данные в массив объектов
-export function save() {
+export async function save() {
     const hours = hoursItem.textContent;
     const minutes = minutesItem.textContent;
     const seconds = secondsItem.textContent;
@@ -49,26 +48,31 @@ export function save() {
         posts: posts,
     })
 
-
     posts.push(postsItem);
+
+
+    const url = ' http://localhost:3001/posts';
     data.push(dataItem);
 
+    try {
+        const response = await fetch(url, {
+            method: 'POST', // или 'PUT'
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const json = await response.json();
+        console.log('Успех:', JSON.stringify(json));
+    } catch (error) {
+        console.error('Ошибка:', error);
+    }
 
     reset();
 }
 
+// console.log(data);
 
 
-console.log(data);
 
 
-//     const response = await fetch('http://localhost:3001/posts', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(dataItem)
-// });
-// const result = await response.json;
-
-// console.log(result);
