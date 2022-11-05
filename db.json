@@ -4,7 +4,21 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
-    }
+    },
+    [
+      {
+        "id": "1",
+        "date": "05/11/2022",
+        "posts": [
+          {
+            "idPosts": "1",
+            "day": "05/11/2022",
+            "title": "задача 1",
+            "time": "00:00:09"
+          }
+        ]
+      }
+    ]
   ],
   "comments": [
     {
