@@ -3,6 +3,19 @@ import moment from "moment";
 import {
     reset
 } from './timer.js';
+import {
+    onWorkStart,
+    onWorkStop
+} from './workBreaks.js';
+import {
+    drawWorkTimeChart
+} from './workChart.js';
+import {
+    displayTimeStatistics
+} from "./flag";
+import {
+    getHistory
+} from './getHistory';
 
 const hoursItem = document.querySelector('.time-hours');
 const minutesItem = document.querySelector('.time-minutes');
@@ -66,14 +79,17 @@ export async function save() {
         });
         const json = await response.json();
         console.log('Успех:', JSON.stringify(json));
+        onWorkStart();
+        onWorkStop();
+        drawWorkTimeChart();
+        displayTimeStatistics();
+        getHistory();
     } catch (error) {
         console.error('Ошибка:', error);
     }
 
-    onWorkStart();
-    onWorkStop();
-    drawWorkTimeChart();
-    displayTimeStatistics();
+
+
     reset();
 
 }

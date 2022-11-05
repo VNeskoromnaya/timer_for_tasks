@@ -6,18 +6,16 @@
     color: #4A5568;
 } */
 
-/* .wrapper-timer {
-    min-height: 100vh;
-    overflow: hidden;
+.wrapper-timer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-image: url("/assets/img/firstSlide.jpg");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-} */
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    left: 25%;
+}
 
 .buttons-and-timer {
     margin-bottom: 15px;
@@ -52,7 +50,7 @@
 .timer-item:not(:last-child)::after {
     content: ':';
     position: absolute;
-    right: -5px;
+    right: -15px;
 }
 
 .timer-buttons,
@@ -79,25 +77,25 @@
 }
 
 /* конец "Таймер + добавление задач" */
-h1 {
+/* h1 {
 	color: red;
 @font-face {
     /* font-family: "Marck Script";
     src: url(../fonts/MarckScript-Regular.ttf); */
 /*Чтобы включить Marck Script расскомментировать в селекторе #history font-size */
 
-    /* font-family: "Montserrat";
+/* font-family: "Montserrat";
     src: url(../fonts/Montserrat-VariableFont_wght.ttf); */
 
-    font-family: "Montserrat";
+/* font-family: "Montserrat";
     src: url(../fonts/ZCOOLQingKeHuangYou-Regular.ttf);
-}
+} */
 
-:root {
+/* :root {
     /* --main_font-family: "Marck Script"; */
-    /* --main_font-family: "Montserrat"; */
-    --main_font-family: ZCOOL QingKe HuangYou, cursive;
-}
+/* --main_font-family: "Montserrat"; */
+/* --main_font-family: ZCOOL QingKe HuangYou, cursive;
+} */
 
 /* шапка первого слайда */
 .slaid1 {
@@ -172,45 +170,45 @@ h1 {
 }
 
 .title {
-	padding: 15px 100px;
-	font-size: 26px;
+    padding: 15px 100px;
+    font-size: 26px;
 }
 
 /* STATISTICS block */
 .statistics-wrp {
-	border: 1px solid red;
-	margin: 100px auto;
-	width: 70%;
-	min-height: 500px;
-	background: no-repeat center/100% url('../img/secondSlide.jpg');
-	background-size: cover;
-	position: static;
+    border: 1px solid red;
+    margin: 100px auto;
+    width: 70%;
+    min-height: 500px;
+    background: no-repeat center/100% url('../img/secondSlide.jpg');
+    background-size: cover;
+    position: static;
 }
 
 .quote {
-	max-width: 65%;
-	margin-left: 15px;
-	font-size: 17px;
-	line-height: 23px;
-	letter-spacing: .5px;
+    max-width: 65%;
+    margin-left: 15px;
+    font-size: 17px;
+    line-height: 23px;
+    letter-spacing: .5px;
 }
 
 blockquote::before {
-	content: open-quote;
+    content: open-quote;
 }
 
 blockquote::after {
-	content: close-quote;
+    content: close-quote;
 }
 
 blockquote {
-	quotes: "“" "”" "‘" "’";
+    quotes: "“""”""‘""’";
 }
 
 figcaption {
-	/* display: block; */
-	text-align: center;
-	font-style: italic;
+    /* display: block; */
+    text-align: center;
+    font-style: italic;
 }
 
 /* человечек */
@@ -221,15 +219,15 @@ figcaption {
 	padding: 0;
 } */
 :root {
-	font-size: calc(24px + (48 - 24)*(100vw - 320px)/(2560 - 320));
-	--bg: #f1f1f1;
-	--fg: #171717;
+    font-size: calc(24px + (48 - 24)*(100vw - 320px)/(2560 - 320));
+    --bg: #f1f1f1;
+    --fg: #171717;
 }
 
 body,
 input {
-	/* color: var(--fg); */
-	font: 1em/1.5 "B612 Mono", monospace;
+    /* color: var(--fg); */
+    font: 1em/1.5 "B612 Mono", monospace;
 }
 
 /* body {
@@ -239,60 +237,60 @@ input {
 	overflow-x: hidden;
 } */
 form {
-	/* margin: auto; */
-	margin: 0 40px;
-	position: relative;
-	z-index: 10;
-	/* width: 400px; */
-	width: 12.5em;
-	bottom: 10px;
+    /* margin: auto; */
+    margin: 0 40px;
+    position: relative;
+    z-index: 10;
+    /* width: 400px; */
+    width: 12.5em;
+    bottom: 10px;
 }
 
 .unicycle,
 .unicycle__wheel,
 .unicycle__rider-body,
 .unicycle__pedal-arms {
-	position: relative;
+    position: relative;
 }
 
 .unicycle {
-	margin-top: 5.5em;
+    margin-top: 5.5em;
 }
 
 .unicycle__wheel {
-	background: transparent;
-	border-radius: 0.75em;
-	box-shadow: 0 0 0 0.1em inset;
-	display: block;
-	outline: transparent;
-	width: 100%;
-	height: 1.5em;
-	-webkit-appearance: none;
-	appearance: none;
-	border-color: #000000 !important;
-	color: #000 !important;
+    background: transparent;
+    border-radius: 0.75em;
+    box-shadow: 0 0 0 0.1em inset;
+    display: block;
+    outline: transparent;
+    width: 100%;
+    height: 1.5em;
+    -webkit-appearance: none;
+    appearance: none;
+    border-color: #000000 !important;
+    color: #000 !important;
 }
 
 .unicycle__wheel::-webkit-slider-thumb {
-	background: transparent;
-	border: 0;
-	border-radius: 50%;
-	box-shadow: 0 0 0 0.1em inset;
-	cursor: pointer;
-	width: 1.5em;
-	height: 1.5em;
-	-webkit-appearance: none;
-	appearance: none;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.1em inset;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .unicycle__wheel::-moz-range-thumb {
-	background: transparent;
-	border: 0;
-	border-radius: 50%;
-	box-shadow: 0 0 0 0.1em inset;
-	cursor: pointer;
-	width: 1.5em;
-	height: 1.5em;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.1em inset;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .unicycle__marker,
@@ -307,41 +305,41 @@ form {
 .unicycle__flag-pole,
 .unicycle__flag,
 .unicycle__pedal {
-	position: absolute;
+    position: absolute;
 }
 
 .unicycle__marker {
-	/* JS will control the variables */
-	--pedalRot: 0deg;
-	--rightLegRot: 0deg;
-	--rightLowerLegRot: 0deg;
-	--leftLegRot: 0deg;
-	--leftLowerLegRot: 0deg;
-	top: -2.5em;
-	left: 0;
-	width: 1.5em;
-	height: 4em;
-	z-index: -1;
+    /* JS will control the variables */
+    --pedalRot: 0deg;
+    --rightLegRot: 0deg;
+    --rightLowerLegRot: 0deg;
+    --leftLegRot: 0deg;
+    --leftLowerLegRot: 0deg;
+    top: -2.5em;
+    left: 0;
+    width: 1.5em;
+    height: 4em;
+    z-index: -1;
 }
 
 .unicycle__marker>div {
-	margin: auto;
+    margin: auto;
 }
 
 .unicycle__marker .unicycle__rider-body {
-	height: 1em;
-	margin-bottom: 0.1em;
+    height: 1em;
+    margin-bottom: 0.1em;
 }
 
 .unicycle__rider-head,
 .unicycle__flag {
-	box-shadow: 0 0 0 0.1em inset;
+    box-shadow: 0 0 0 0.1em inset;
 }
 
 .unicycle__rider-head {
-	border-radius: 50%;
-	width: 1em;
-	height: 1em;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
 }
 
 .unicycle__rider-head~div,
@@ -355,7 +353,7 @@ form {
 .unicycle__left-lower-leg,
 .unicycle__flag-pole,
 .unicycle__pedal {
-	background: currentColor;
+    background: currentColor;
 }
 
 .unicycle__rider-body,
@@ -369,7 +367,7 @@ form {
 .unicycle__left-lower-leg,
 .unicycle__flag-pole,
 .unicycle__bar {
-	width: 0.1em;
+    width: 0.1em;
 }
 
 .unicycle__right-lower-arm,
@@ -381,7 +379,7 @@ form {
 .unicycle__seat,
 .unicycle__pedal-arms,
 .unicycle__pedal {
-	border-radius: 0.05em;
+    border-radius: 0.05em;
 }
 
 .unicycle__right-arm,
@@ -392,7 +390,7 @@ form {
 .unicycle__right-lower-leg,
 .unicycle__left-leg,
 .unicycle__left-lower-leg {
-	transform-origin: 50% 0.05em;
+    transform-origin: 50% 0.05em;
 }
 
 .unicycle__right-lower-arm,
@@ -401,7 +399,7 @@ form {
 .unicycle__left-leg,
 .unicycle__right-lower-leg,
 .unicycle__left-lower-leg {
-	top: calc(100% - 0.05em);
+    top: calc(100% - 0.05em);
 }
 
 .unicycle__right-arm,
@@ -410,103 +408,103 @@ form {
 .unicycle__left-lower-arm,
 .unicycle__right-leg,
 .unicycle__left-leg {
-	height: 0.75em;
+    height: 0.75em;
 }
 
 .unicycle__right-lower-leg,
 .unicycle__left-lower-leg {
-	height: 0.78em;
+    height: 0.78em;
 }
 
 .unicycle__right-arm {
-	transform: rotate(-80deg);
+    transform: rotate(-80deg);
 }
 
 .unicycle__right-lower-arm {
-	transform: rotate(-10deg);
+    transform: rotate(-10deg);
 }
 
 .unicycle__left-arm {
-	transform: rotate(25deg);
+    transform: rotate(25deg);
 }
 
 .unicycle__left-lower-arm {
-	transform: rotate(5deg);
+    transform: rotate(5deg);
 }
 
 .unicycle__right-leg {
-	transform: rotate(var(--rightLegRot));
+    transform: rotate(var(--rightLegRot));
 }
 
 .unicycle__right-lower-leg {
-	transform: rotate(var(--rightLowerLegRot));
+    transform: rotate(var(--rightLowerLegRot));
 }
 
 .unicycle__left-leg {
-	transform: rotate(var(--leftLegRot));
+    transform: rotate(var(--leftLegRot));
 }
 
 .unicycle__left-lower-leg {
-	transform: rotate(var(--leftLowerLegRot));
+    transform: rotate(var(--leftLowerLegRot));
 }
 
 .unicycle__flag-pole {
-	height: 3em;
-	bottom: 0;
-	transform: rotate(90deg);
-	transform-origin: 50% calc(100% - 0.1em);
+    height: 3em;
+    bottom: 0;
+    transform: rotate(90deg);
+    transform-origin: 50% calc(100% - 0.1em);
 }
 
 .unicycle__flag {
-	right: 0;
-	text-align: center;
-	width: 2.25em;
-	height: 1.5em;
+    right: 0;
+    text-align: center;
+    width: 2.25em;
+    height: 1.5em;
 }
 
 .unicycle__seat,
 .unicycle__pedal-arms {
-	height: 0.1em;
+    height: 0.1em;
 }
 
 .unicycle__seat {
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	width: 0.4em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 0.4em;
 }
 
 .unicycle__bar {
-	border-radius: 0 0 0.05em 0.05em;
-	height: 1.1em;
+    border-radius: 0 0 0.05em 0.05em;
+    height: 1.1em;
 }
 
 .unicycle__pedal-arms {
-	top: -0.1em;
-	width: 0.5em;
-	transform: rotate(var(--pedalRot));
+    top: -0.1em;
+    width: 0.5em;
+    transform: rotate(var(--pedalRot));
 }
 
 .unicycle__pedal {
-	top: 0;
-	width: 0.3em;
-	height: 0.1em;
-	transform: rotate(calc(var(--pedalRot) * -1));
+    top: 0;
+    width: 0.3em;
+    height: 0.1em;
+    transform: rotate(calc(var(--pedalRot) * -1));
 }
 
 .unicycle__pedal:first-child {
-	left: -0.15em;
+    left: -0.15em;
 }
 
 .unicycle__pedal:last-child {
-	right: -0.15em;
+    right: -0.15em;
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--bg: #171717;
-		--fg: #f1f1f1;
-	}
+    :root {
+        --bg: #171717;
+        --fg: #f1f1f1;
+    }
 }
 
 
