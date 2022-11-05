@@ -12,17 +12,78 @@
 
 <body>
   <h1>Timer</h1>
+  <div class="wrapper">
 
-  <section class="slaid1">
-    <p id="slaid1_phrase"></p>
-    <p id="slaid1_today"></p>
-    <img class="slaid1_buttonStart" src="./assets/img/start.svg" alt="startButton">
-    <img class="slaid1_history" src="./assets/img/history.svg" alt="history">
+    <div class="statistics-wrp">
+      <h2 class="title">Статистика</h2>
+      <figure class="quote">
+        <blockquote>
+          Из многочисленных исследований вырисовывается следующая картина: о какой бы области не шла речь, для
+          достижения уровня мастерства, соразмерного со статусом эксперта мирового класса, требуется 10 000 часов
+          практики.
+        </blockquote>
+        <figcaption>
+          Невролог Даниель Левитин
+        </figcaption>
+      </figure>
+
+      <form>
+        <div id="unicycle1" class="unicycle">
+          <input type="range" class="unicycle__wheel" name="unicycle" min="0" max="200" value="0" disabled>
+          <div class="unicycle__marker">
+            <div class="unicycle__rider-head"></div>
+            <div class="unicycle__rider-body">
+              <div class="unicycle__left-arm">
+                <div class="unicycle__left-lower-arm"></div>
+              </div>
+              <div class="unicycle__right-arm">
+                <div class="unicycle__right-lower-arm">
+                  <div class="unicycle__flag-pole">
+                    <div class="unicycle__flag">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="unicycle__left-leg">
+                <div class="unicycle__left-lower-leg"></div>
+              </div>
+              <div class="unicycle__right-leg">
+                <div class="unicycle__right-lower-leg"></div>
+              </div>
+            </div>
+            <div class="unicycle__seat"></div>
+            <div class="unicycle__bar"></div>
+            <div class="unicycle__pedal-arms">
+              <div class="unicycle__pedal"></div>
+              <div class="unicycle__pedal"></div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+
+      <div></div>
+      <div></div>
+    </div>
+
+
+
+  </div>
+
+  <!-- Блок "график" -->
+  <section class="container-chart">
+    <p class="chart__title">Время обучения по дням.</p>
+    <div class="chart">
+      <canvas id="myChart" class="myChart"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </div>
   </section>
 
-  <div id="history"></div>
-  
-  <script type="module" src="./script/app.js"></script>
+  <!-- <button class="btn-start">Start work</button>
+  <button class="btn-finish">Finish work</button> -->
+
+  <script type="module" src="./script/flag.js"></script>
+  <script type="module" src="script/app.js"></script>
 </body>
 
 </html>
