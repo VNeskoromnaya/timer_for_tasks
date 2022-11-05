@@ -37,7 +37,7 @@ export async function save() {
 
     const postsItem = new PostsItem({
         idPosts: `${posts.length + 1}`,
-        day: moment().format("DD/MM/YYYY"),
+        date: moment().format("DD/MM/YYYY"),
         title: `${task.value}`,
         time: `${hours}:${minutes}:${seconds}`,
     })
@@ -54,7 +54,7 @@ export async function save() {
     const url = 'http://localhost:3001/posts/1';
     data.push(dataItem);
 
-// console.log(data);
+    // console.log(data);
 
     try {
         const response = await fetch(url, {
@@ -70,12 +70,10 @@ export async function save() {
         console.error('Ошибка:', error);
     }
 
+    onWorkStart();
+    onWorkStop();
+    drawWorkTimeChart();
+    displayTimeStatistics();
     reset();
 
 }
-
-
-
-
-
-
