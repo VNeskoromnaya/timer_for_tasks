@@ -17,6 +17,19 @@ import {
   drawWorkTimeChart
 } from './workChart.js';
 
+import moment from "moment";
+window.moment = moment;
+const chart = require("chart.js");
+
+import {getAPI} from './getAPI'
+import {getTodayDate} from './getTodayDate'
+import {getHistory} from './getHistory'
+
+getAPI();
+getTodayDate();
+getHistory();
+
+import { displayTimeStatistics } from "./flag";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("test");
