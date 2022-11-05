@@ -1,3 +1,9 @@
+import { displayTimeStatistics } from "./flag";
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("test");
+  displayTimeStatistics();
+});
 import { onWorkStart, onWorkStop } from './workBreaks.js';
 import { drawWorkTimeChart } from './workChart.js';
 
