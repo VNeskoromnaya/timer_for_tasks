@@ -54,6 +54,8 @@ export async function save() {
     const url = 'http://localhost:3001/posts/1';
     data.push(dataItem);
 
+// console.log(data);
+
     try {
         const response = await fetch(url, {
             method: 'PUT', // или 'PUT'
@@ -72,7 +74,7 @@ export async function save() {
 
 }
 
-// console.log(data);
+
 
 
 
