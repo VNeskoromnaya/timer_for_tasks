@@ -23,7 +23,7 @@ const secondsItem = document.querySelector('.time-seconds');
 
 const taskInput = document.querySelector('.tasks-input');
 
-let data = []; // все данные за день
+// let data = {}; // все данные за день
 let posts = []; // все задачи с датами и временем выполнения собираются в этот массив
 
 // Функция сохраняет данные в массив объектов
@@ -55,8 +55,8 @@ export async function save() {
         time: `${hours}:${minutes}:${seconds}`,
     })
 
-    const dataItem = new DataItem({
-        id: `${data.length + 1}`,
+    const data = new DataItem({
+        // id: `${data.length + 1}`,
         date: moment().format("DD/MM/YYYY"),
         posts: posts,
     })
@@ -65,7 +65,7 @@ export async function save() {
 
 
     const url = 'http://localhost:3001/data';
-    data.push(dataItem);
+    // data.push(dataItem);
 
     // console.log(data);
 

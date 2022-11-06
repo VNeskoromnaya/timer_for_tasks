@@ -32,13 +32,16 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("test");
 
+  const chartDiv = document.getElementById('myChart');
+  drawWorkTimeChart(chartDiv);
+
   const buttonStart = document.querySelector('.start');
   buttonStart.addEventListener('click', startWork);
+
 
   function startWork() {
     start();
     onWorkStart();
-    drawWorkTimeChart();
   }
 
   const buttonPause = document.querySelector('.pause');
