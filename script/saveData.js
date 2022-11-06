@@ -21,7 +21,7 @@ const hoursItem = document.querySelector('.time-hours');
 const minutesItem = document.querySelector('.time-minutes');
 const secondsItem = document.querySelector('.time-seconds');
 
-const task = document.querySelector('.tasks-input');
+const taskInput = document.querySelector('.tasks-input');
 
 let data = []; // все данные за день
 let posts = []; // все задачи с датами и временем выполнения собираются в этот массив
@@ -42,8 +42,8 @@ export async function save() {
     class PostsItem {
         constructor(option) {
             this.idPosts = option.idPosts
-            this.day = option.day
-            this.title = option.title
+            this.date = option.date
+            this.task = option.task
             this.time = option.time
         }
     }
@@ -51,7 +51,7 @@ export async function save() {
     const postsItem = new PostsItem({
         idPosts: `${posts.length + 1}`,
         date: moment().format("DD/MM/YYYY"),
-        title: `${task.value}`,
+        task: `${taskInput.value}`,
         time: `${hours}:${minutes}:${seconds}`,
     })
 
@@ -64,14 +64,14 @@ export async function save() {
     posts.push(postsItem);
 
 
-    const url = 'http://localhost:3001/posts/1';
+    const url = 'http://localhost:3001/data';
     data.push(dataItem);
 
     // console.log(data);
 
     try {
         const response = await fetch(url, {
-            method: 'PUT', // или 'PUT'
+            method: 'POST', // или 'PUT'
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'

@@ -1,8 +1,8 @@
 export async function getHistory() {
-    const response = await fetch('http://localhost:3001/posts')
+    const response = await fetch('http://localhost:3001/data')
     const data = await response.json()
     getData(data);
-    getTotalHours(data);
+    // getTotalHours(data);
 }
 
 function getData(data) {

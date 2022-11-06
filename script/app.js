@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttonFinish = document.querySelector('.end-of-work');
   buttonFinish.addEventListener('click', onWorkStop);
 
-  const chartDiv = document.getElementById('myChart');
-  drawWorkTimeChart(chartDiv);
+  // const chartDiv = document.getElementById('myChart');
+  // drawWorkTimeChart(chartDiv);
 
-  const startButton = document.querySelector('.btn-start');
-  startButton.addEventListener('click', onWorkStart);
+  // const startButton = document.querySelector('.btn-start');
+  // startButton.addEventListener('click', onWorkStart);
 
-  const finishButton = document.querySelector('.btn-finish');
-  finishButton.addEventListener('click', onWorkStop);
+  // const finishButton = document.querySelector('.btn-finish');
+  // finishButton.addEventListener('click', onWorkStop);
 
   displayTimeStatistics();
 

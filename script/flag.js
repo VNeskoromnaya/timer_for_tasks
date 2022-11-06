@@ -5,9 +5,9 @@
 
 // функция 1: эта функция забирает данные с сервера
 async function getDataFromServer() {
-  const response = await fetch("http://localhost:3001/posts");
+  const response = await fetch("http://localhost:3001/data");
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   // console.log(data[0].posts[1].time);
   // console.log(data[1].posts[0].time);
   return data;
@@ -27,7 +27,7 @@ function getTotalHours(data) {
       totalSeconds += hours * 3600 + minutes * 60 + seconds;
     }
   }
-  console.log(totalSeconds);
+  // console.log(totalSeconds);
   return Math.round(totalSeconds / 3600);
 }
 

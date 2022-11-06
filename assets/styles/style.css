@@ -77,25 +77,27 @@
 }
 
 /* конец "Таймер + добавление задач" */
-/* h1 {
-	color: red;
+h1 {
+    color: red;
+}
+
 @font-face {
     /* font-family: "Marck Script";
     src: url(../fonts/MarckScript-Regular.ttf); */
-/*Чтобы включить Marck Script расскомментировать в селекторе #history font-size */
+    /*Чтобы включить Marck Script расскомментировать в селекторе #history font-size */
 
-/* font-family: "Montserrat";
+    /* font-family: "Montserrat";
     src: url(../fonts/Montserrat-VariableFont_wght.ttf); */
 
-/* font-family: "Montserrat";
+    font-family: "Montserrat";
     src: url(../fonts/ZCOOLQingKeHuangYou-Regular.ttf);
-} */
+}
 
-/* :root {
-    /* --main_font-family: "Marck Script"; */
-/* --main_font-family: "Montserrat"; */
-/* --main_font-family: ZCOOL QingKe HuangYou, cursive;
-} */
+:root {
+    /* --main_font-family: "Marck Script";
+--main_font-family: "Montserrat"; */
+    --main_font-family: ZCOOL QingKe HuangYou, cursive;
+}
 
 /* шапка первого слайда */
 .slaid1 {
@@ -112,7 +114,7 @@
 #slaid1_phrase {
     position: absolute;
     text-align: center;
-    top: 10%;
+    top: 5%;
     right: 10%;
     left: 45%;
     font-family: var(--main_font-family);
